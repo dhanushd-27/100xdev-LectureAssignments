@@ -1,12 +1,42 @@
-function addTodo(e){
-    e.preventDefault();
+let counter = 1;
 
-    const list = document.body.querySelector("#list");
+function addTodo(event){
+    event.preventDefault();
+    
+    todoContainer = document.getElementById("list");
 
-    const todo = document.body.getElementsByTagName("input");
+    // Create Elements
+    divEle = document.createElement("div");
+    deleteButt = document.createElement("button");
 
-    const liEle = document.createElement("li");
-    liEle.textContent = todo[0].value;
+    divEle.setAttribute("id", "todo-" + counter);
+    deleteButt.setAttribute("onclick", "deleteTodo( " + counter + ")");
 
-    list.appendChild(liEle);
+    todo = document.getElementById("inp");
+
+    if(!todo.value){
+        alert("Input shouldn't be empty");
+        return;
+    }
+
+    pEle = document.createElement("p");
+
+    pEle.textContent = counter + " " + todo.value;
+    deleteButt.textContent = "delete";
+
+    divEle.appendChild(pEle);
+    divEle.appendChild(deleteButt);
+    todoContainer.appendChild(divEle);
+
+    todo.value = "";
+    counter++;
+}
+
+function deleteTodo(index){
+    const element = document.getElementById("todo-" + index);
+
+    if (element) {
+        element.parentNode.removeChild(element);
+    }
+    counter--;
 }
