@@ -9,6 +9,7 @@ app.use(express.json());
 
 let users = [];
 
+// you can use it instead of jwt
 function generateToken(usrname, password){
     const lowercaseAlphabet = 'abcdefghijklmnopqrstuvwxyz';
     const uppercaseAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
