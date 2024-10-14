@@ -20,13 +20,19 @@ adminRoutes.post('/create-course', (req, res) => {
     })
 })
 
-adminRoutes.post('/delete-course', (req, res) => {
+adminRoutes.delete('/delete-course', (req, res) => {
     res.json({
         "Message": "Successfull"
     })
 })
 
-adminRoutes.post('/add-content', (req, res) => {
+adminRoutes.put('/add-content', (req, res) => {
+    res.json({
+        "Message": "Successfull"
+    })
+})
+
+adminRoutes.get('/course/preview', (req, res) => {
     res.json({
         "Message": "Successfull"
     })

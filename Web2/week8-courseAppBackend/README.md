@@ -31,4 +31,9 @@ Example:
     Export the above function and call it in index.js file - userRoutes(app)
 
 ### - Use Express Router in different files and call them in main file
+    This way is followed in this basic backend application
 
+
+### Live Class tips
+    Don't store the base-64 url of an image inside the database
+    instead store a direct link of the image
