@@ -140,16 +140,34 @@ adminRoutes.delete('/delete-course', AuthAdmin, (req, res) => {
     })
 })
 
-adminRoutes.put('/add-content', AuthAdmin, (req, res) => {
-    res.json({
-        "Message": "Successfull"
+adminRoutes.put('/course', AuthAdmin,async (req, res) => {
+    const { title, description, imageUrl, price, adminId, courseId } = req.body;
+
+    const course = await CourseModel.updateOne({
+        _id: courseId,
+        ownedBy: adminId
+    }, {
+        title,
+        description,
+        imageUrl,
+        price
     })
-})
+
+    if(course){
+        res.json({
+            "message": "Course Updated",
+            "AdminId": adminId
+        })
+    }
+    else{
+        res.status(403).json({
+            "message": "something went wrong"
+        })
+    }
+}) 
 
 adminRoutes.get('/course/preview', AuthAdmin, (req, res) => {
-    res.json({
-        "Message": "Successfull"
-    })
+    
 })
 
 module.exports = {
