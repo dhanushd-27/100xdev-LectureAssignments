@@ -12,8 +12,6 @@ const CourseSchema = new Schema({
     imageUrl: String
 })
 
-const CourseModel = mongoose.model(CourseSchema, "course")
+const CourseModel = mongoose.model('course', CourseSchema)
 
-module.export = {
-    CourseModel
-}
+module.exports = CourseModel

@@ -8,6 +8,7 @@ const { userRoutes, adminRoutes, courseRoutes } = require("./routes/index")
 const app = express();
 
 dotenv.config();
+app.use(express.json());
 
 (async () => {
     try {

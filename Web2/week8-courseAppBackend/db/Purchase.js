@@ -8,8 +8,6 @@ const purchaseSchema = new Schema({
     userId: ObjectId
 })
 
-const PurchaseModel = mongoose.model(purchaseSchema, "purchases")
+const PurchaseModel = mongoose.model('purchase', purchaseSchema)
 
-module.exports = {
-    PurchaseModel
-}
+module.exports = PurchaseModel
