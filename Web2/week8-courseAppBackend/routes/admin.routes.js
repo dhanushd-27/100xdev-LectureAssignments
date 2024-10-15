@@ -134,6 +134,7 @@ adminRoutes.post('/create', AuthAdmin, async (req, res) => {
     }
 })
 
+// complete later
 adminRoutes.delete('/delete-course', AuthAdmin, (req, res) => {
     res.json({
         "Message": "Successfull"

@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { UserModel } = require("../db/index")
+const { UserModel, PurchaseModel, CourseModel } = require("../db/index")
 const { z } = require("zod")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
@@ -92,10 +92,30 @@ userRoutes.post("/signin", async (req, res) => {
     }
 })
 
-userRoutes.get("/purchases", AuthUser, (req, res) => {
-    res.json({
-        "Message": "Successfull"
+userRoutes.get("/purchases", AuthUser, async (req, res) => {
+    const { userId } = req.body
+    
+    const purchases = await PurchaseModel.find({
+        userId
     })
+
+    console.log(purchases);
+
+    const courseData = await CourseModel.find({
+        _id: { $in: purchases.map(x => x.courseId)}
+    })
+
+    if(purchases){
+        res.json({
+            "Message": "Request Successfull",
+            courseData
+        })
+    }
+    else{
+        res.status(403).json({
+            "Message": "No courses were purchased"
+        })
+    }
 })
 
 module.exports = {
