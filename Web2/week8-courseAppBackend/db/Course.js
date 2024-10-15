@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId
 
 const CourseSchema = new Schema({
-    name: String,
+    title: String,
     description: String,
     domain: String,
     price: String,

@@ -141,19 +141,20 @@ adminRoutes.delete('/delete-course', AuthAdmin, (req, res) => {
 })
 
 adminRoutes.put('/course', AuthAdmin,async (req, res) => {
-    const { title, description, imageUrl, price, adminId, courseId } = req.body;
+    const { title, description, imageUrl, price, adminId, courseId, domain } = req.body;
 
     const course = await CourseModel.updateOne({
         _id: courseId,
         ownedBy: adminId
     }, {
-        title,
-        description,
-        imageUrl,
-        price
+        title: title,
+        description: description,
+        imageUrl: imageUrl,
+        price: price,
+        domain: domain
     })
 
-    if(course){
+    if(course.matchedCount){
         res.json({
             "message": "Course Updated",
             "AdminId": adminId
@@ -161,13 +162,29 @@ adminRoutes.put('/course', AuthAdmin,async (req, res) => {
     }
     else{
         res.status(403).json({
-            "message": "something went wrong"
+            "message": "Unauthorized User!"
         })
     }
 }) 
 
-adminRoutes.get('/course/preview', AuthAdmin, (req, res) => {
+adminRoutes.get('/course/preview', AuthAdmin, async (req, res) => {
+    const { adminId } = req.body;
+
+    const courses = await CourseModel.find({
+        ownedBy: adminId
+    })
     
+    if(courses){
+        res.status(200).json({
+            "message": "Request Successfull",
+            courses
+        })
+    }
+    else{
+        res.status(400).json({
+            "message": "No course available"
+        })
+    }
 })
 
 module.exports = {
