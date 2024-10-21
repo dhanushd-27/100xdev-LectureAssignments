@@ -1,7 +1,5 @@
 const express = require("express")
 const dotenv = require("dotenv")
-// const { connectDb } = require("./db/index")
-const jwt = require("jsonwebtoken")
 const mongoose = require("mongoose")
 const { userRoutes, adminRoutes, courseRoutes } = require("./routes/index")
 
