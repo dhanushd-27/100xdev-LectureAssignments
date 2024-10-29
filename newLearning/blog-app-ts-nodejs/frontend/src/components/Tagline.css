@@ -1,0 +1,77 @@
+
+.tagline__card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 140px;
+}
+
+.tagline__motto{
+    width: 763px;
+    height: 178px;
+    flex-shrink: 0;
+    color: #244855;
+    text-align: center;
+    font-family: Inter;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin: 0;
+}
+
+.tagline__headline{
+    margin: 0;
+    width: 489px;
+    height: 94px;
+    flex-shrink: 0;
+    color: #256679;
+    text-align: center;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.tagline__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.explore-blogs{
+    width: 195px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #244855;
+    cursor: grab;
+    border: 0;
+
+    /* text */
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.learn-more{
+    width: 195px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #FFF;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: 0;
+    cursor: grab;
+}
