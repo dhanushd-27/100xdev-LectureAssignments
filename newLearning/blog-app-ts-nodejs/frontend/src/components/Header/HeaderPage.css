@@ -13,6 +13,7 @@
 }
 
 .header__title{
+    cursor: grab;
     margin: 0;
     color: #244855;
     font-family: Inter;

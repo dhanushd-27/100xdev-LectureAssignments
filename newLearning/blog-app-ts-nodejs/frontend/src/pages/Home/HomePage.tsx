@@ -1,12 +1,12 @@
 import HeaderPage from "../../components/Header/HeaderPage"
-import SignupCard from "../../components/Signup/SignupCard"
+import Tagline from "../../components/Tagline"
 
 
 const HomePage = () => {
     return (
         <div>
             <HeaderPage />
-            <SignupCard />
+            <Tagline/>
         </div>
     )
 }
