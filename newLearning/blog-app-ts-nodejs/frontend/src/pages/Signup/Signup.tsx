@@ -3,9 +3,11 @@ import SignupCard from '../../components/Signup/SignupCard'
 import "./Signup.css"
 
 const Signup = () => {
+    const isLoginPage = true;
+
     return (
         <div>
-            <HeaderPage />
+            <HeaderPage isLoginPage={isLoginPage}/>
             <SignupCard />
         </div>
     )

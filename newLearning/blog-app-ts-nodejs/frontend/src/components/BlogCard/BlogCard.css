@@ -5,11 +5,12 @@
     border-radius: 15px;
     background-color: #c7eaee;
     height: 163px;
+    margin: 30px;
 }
 
 .blog__head-content{
     margin: 0;
-    width: 37px;
+    width: inherit;
     padding-left: 27px;
     padding-right: 27px;
     position: relative;
@@ -37,12 +38,15 @@
     max-width: 100%;
     overflow: hidden;
     height: 86px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .blog__mid-content{
+    padding-top: 20px;
     padding-left: 27px;
     padding-right: 27px;
-    width: 118px;
+    width: inherit;
     position: relative;
     font-size: 12px;
     font-weight: 600;
@@ -58,17 +62,18 @@
     overflow: hidden;
     display: flex;
     justify-content: end;
+    flex-wrap: wrap;
 }
 
 .blog__footer-content{
     padding-left: 27px;
     padding-right: 27px;
-    width: 40%;
+    width: inherit;
     position: relative;
     font-size: 12px;
     font-weight: 600;
     font-family: Inter;
     color: #244855;
-    text-align: left;
-    display: inline-block;
+    display: flex;
+    justify-content: end;
 }

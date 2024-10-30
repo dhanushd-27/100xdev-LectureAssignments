@@ -3,9 +3,11 @@ import HeaderPage from '../../components/Header/HeaderPage';
 import LoginCard from '../../components/Login/LoginCard';
 
 const Login = () => {
+    const isLoginPage: boolean = true;
+
     return (
         <div>
-            <HeaderPage />
+            <HeaderPage isLoginPage={isLoginPage}/>
             <LoginCard/>
         </div>
     )

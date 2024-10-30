@@ -23,40 +23,24 @@
     line-height: normal;
 }
 
-.header__login{
-    border: 0;
-    border-radius: 10px;
-    width: 132px;
-    height: 48px;
-    flex-shrink: 0;
-    fill: #FFF;
-    color: #000;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1px;
-    cursor: grab;
-}
-
-.header__signup{ 
-    color: #FFF;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border-radius: 10px;
-    background: #244855;
-    width: 132px;
-    height: 48px;
-    flex-shrink: 0;
-    border: 0;
-    cursor: grab;
-}
-
 #header__buttons{
     display: flex;
     gap: 23px;
+}
+
+.profile{
+    width: 60px;
+    position: relative;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    height: 60px;
+    margin: 50px;
+}
+
+.profile__div{
+    width: 250px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
