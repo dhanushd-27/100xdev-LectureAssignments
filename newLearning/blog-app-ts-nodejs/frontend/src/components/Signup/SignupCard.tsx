@@ -1,3 +1,5 @@
+import FormButton from "../Buttons/FormButton"
+import Input from "../Input/Input"
 import "./SignupCard.css"
 
 const SignupCard = () => {
@@ -6,14 +8,11 @@ const SignupCard = () => {
             <h3 className='signup__head'>Welcome to <span>BlogNest</span></h3>
             <p className="headline">Join us to express and inspire</p>
             <form className="signup__form">
-                <label htmlFor="username" className='signup__label'>Username</label>
-                <input type="text" name="username" placeholder='Enter your username' className='signup__input'/>
-                <label htmlFor="email" className='signup__label'>Email</label>
-                <input type="text" name="email"  placeholder='Enter your email' className='signup__input'/>
-                <label htmlFor="password" className='signup__label'>Password</label>
-                <input type="password" name="password"  placeholder='Enter your password' className='signup__input'/>
+                <Input inputName="username" label="Username" placeholder="Enter your username"/>
+                <Input inputName="email" label="Email" placeholder="Enter your Email Id"/>
+                <Input inputName="password" label="Password" placeholder="Enter your password" />
 
-                <button className='signup__button'>Sign Up</button>
+                <FormButton name="Sign up"/>
             </form>
         </div>
     )

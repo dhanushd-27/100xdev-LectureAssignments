@@ -22,6 +22,7 @@ const HeaderPage: React.FC<LoginPageProps> = ({ isLoginPage }) => {
                 </div>
             ) : (
                 <div className='profile__div'>
+                    <LightButton name="Log out" path='/' />
                     <DarkButton name="Create" path="/blog/create" />
                     <img src="/europe.jpeg" alt="profile image" className='profile'/>
                 </div>
