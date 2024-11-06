@@ -12,7 +12,7 @@ const LoginCard = () => {
                 <Input inputName="email" label="Email" placeholder="Enter your Email Id"/>
                 <Input inputName="password" label="Password" placeholder="Enter your password" />
 
-                <FormButton name='Log in ' />
+                <FormButton name='Log in' />
             </form>
         </div>
     )

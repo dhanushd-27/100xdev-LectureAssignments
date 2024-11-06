@@ -7,17 +7,18 @@ import Blogs from './pages/Blogs/Blogs';
 import CreatePage from './pages/CreateBlogs/CreatePage';
 
 const App = () => {
+
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<HomePage />}/>
-          <Route path='/login' element={<Login />}/>
-          <Route path='/signup' element={<Signup />}/>
-          <Route path='/blogs' element={<Blogs />}/>
-          <Route path='/blog/create' element={<CreatePage />}/>
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage />}/>
+            <Route path='/login' element={<Login />}/>
+            <Route path='/signup' element={<Signup />}/>
+            <Route path='/blogs' element={<Blogs />}/>
+            <Route path='/blog/create' element={<CreatePage />}/>
+          </Routes>
+        </BrowserRouter>
     </>
   )
 }

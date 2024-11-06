@@ -40,7 +40,7 @@ const user_signup = async (req: Request, res: Response) => {
 
         console.log("User created successfully");
 
-        res.json({
+        res.status(200).json({
             "Message": "User Sign Up Successfull"
         })
 

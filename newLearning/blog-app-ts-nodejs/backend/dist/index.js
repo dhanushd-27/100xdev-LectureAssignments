@@ -31,12 +31,19 @@ const user_routes_1 = require("./routes/user.routes");
 const dotenv = __importStar(require("dotenv"));
 const db_1 = require("./db/db");
 const blog_routes_1 = __importDefault(require("./routes/blog.routes"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 dotenv.config();
 (0, db_1.connectDB)();
+const corsOptions = {
+    origin: '*', // allow requests from any origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow specific HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // allow specific headers
+};
+app.use((0, cors_1.default)(corsOptions));
 app.use(express_1.default.json());
 app.use('/api/v1/user', user_routes_1.userRoutes);
 app.use('/api/v1/blog', blog_routes_1.default);
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server connected");
 });

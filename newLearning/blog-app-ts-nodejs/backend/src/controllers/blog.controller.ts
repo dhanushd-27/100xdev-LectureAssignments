@@ -3,7 +3,6 @@ import { Response, Request } from 'express';
 import { JwtPayload } from "jsonwebtoken";
 import BlogModel from "../models/Blog";
 import UserModel from "../models/User";
-import { ObjectId } from "mongodb";
 
 const create_blog = async (req: Request, res: Response) => {
     const { title, content}: blog = req.body;

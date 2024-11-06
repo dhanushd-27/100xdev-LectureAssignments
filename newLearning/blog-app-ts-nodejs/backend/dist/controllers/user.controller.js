@@ -66,7 +66,7 @@ const user_signup = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             password: hashedPassword
         });
         console.log("User created successfully");
-        res.json({
+        res.status(200).json({
             "Message": "User Sign Up Successfull"
         });
     }

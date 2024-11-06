@@ -8,7 +8,7 @@ const Login = () => {
     return (
         <div>
             <HeaderPage isLoginPage={isLoginPage}/>
-            <LoginCard/>
+            <LoginCard />
         </div>
     )
 }

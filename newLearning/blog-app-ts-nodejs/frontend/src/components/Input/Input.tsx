@@ -1,7 +1,7 @@
 import { ValueProps } from "../../@types/types"
 import "./Input.css"
 
-const Input: React.FC<ValueProps> = ({inputName, label, placeholder}) => {
+const Input: React.FC<ValueProps> = ({ inputName, label, placeholder }) => {
     return (
         <>
             <label htmlFor={ inputName } className='value__label'>{ label }</label>
