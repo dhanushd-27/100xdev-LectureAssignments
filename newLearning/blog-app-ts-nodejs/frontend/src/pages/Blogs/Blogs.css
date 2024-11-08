@@ -1,8 +1,0 @@
-.blogs__container{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-}
