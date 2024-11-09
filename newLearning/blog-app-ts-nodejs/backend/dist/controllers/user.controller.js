@@ -55,6 +55,7 @@ const user_signup = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             "Message": "Invalid Data",
             "Error": issue
         });
+        return;
     }
     // Password hashed
     const hashedPassword = yield bcryptjs_1.default.hash(password, 5);
@@ -75,6 +76,7 @@ const user_signup = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             "Message": "Something went wrong",
             "Error": error
         });
+        return;
     }
 });
 exports.user_signup = user_signup;
@@ -92,6 +94,7 @@ const user_signin = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             "Message": "Invalid Data",
             "Error": issue
         });
+        return;
     }
     const isFound = yield User_1.default.findOne({
         email: email,
@@ -114,6 +117,7 @@ const user_signin = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             res.status(403).json({
                 "Message": "Incorrect Password"
             });
+            return;
         }
     }
 });
@@ -132,7 +136,7 @@ const update_blog = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         const information = yield Blog_1.default.findOne({
             _id: _id
         });
-        res.json({
+        res.status(200).json({
             "Message": "Data Updated Successfully",
             "Updated Blog": information
         });
@@ -141,6 +145,7 @@ const update_blog = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(403).json({
             "Message": "Unauthorized User"
         });
+        return;
     }
 });
 exports.update_blog = update_blog;
@@ -160,6 +165,7 @@ const delete_blog = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(403).json({
             "Message": "Unauthorized User"
         });
+        return;
     }
 });
 exports.delete_blog = delete_blog;

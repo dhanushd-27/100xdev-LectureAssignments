@@ -25,6 +25,8 @@ const user_signup = async (req: Request, res: Response) => {
             "Message": "Invalid Data",
             "Error": issue
         })
+
+        return;
     }
 
     // Password hashed
@@ -49,6 +51,8 @@ const user_signup = async (req: Request, res: Response) => {
             "Message": "Something went wrong",
             "Error": error
         })
+
+        return;
     }
 }
 
@@ -70,6 +74,8 @@ const user_signin = async (req: Request, res: Response) => {
             "Message": "Invalid Data",
             "Error": issue
         })
+        
+        return;
     }
 
     const isFound: user | null  = await UserModel.findOne({
@@ -96,6 +102,8 @@ const user_signin = async (req: Request, res: Response) => {
             res.status(403).json({
                 "Message": "Incorrect Password"
             })
+
+            return;
         }
     }
 }
@@ -117,7 +125,7 @@ const update_blog = async (req: Request, res: Response) => {
             _id: _id
         }) 
     
-        res.json({
+        res.status(200).json({
             "Message": "Data Updated Successfully",
             "Updated Blog": information
         })
@@ -126,6 +134,8 @@ const update_blog = async (req: Request, res: Response) => {
         res.status(403).json({
             "Message": "Unauthorized User"
         })
+
+        return;
     }
 }
 
@@ -147,6 +157,8 @@ const delete_blog = async (req: Request, res: Response) => {
         res.status(403).json({
             "Message": "Unauthorized User"
         })
+
+        return;
     }
 }
 
