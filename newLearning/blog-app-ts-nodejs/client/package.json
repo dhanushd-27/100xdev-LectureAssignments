@@ -13,14 +13,17 @@
     "@types/recoil": "^0.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.28.0",
     "recoil": "^0.7.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/axios": "^0.9.36",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "axios": "^1.7.7",
     "eslint": "^9.13.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",

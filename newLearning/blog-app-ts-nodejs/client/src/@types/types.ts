@@ -17,11 +17,9 @@ export interface ValueProps{
     type?: string
     inputName: string,
     label: string,
-    placeholder: string
-}
-
-export interface FormProps{
-    name: string
+    placeholder: string,
+    value: string,
+    setValue: (value: string) => void
 }
 
 export interface LoginData{
@@ -33,4 +31,9 @@ export interface SignupData{
     username: string,
     email: string,
     password: string
+}
+
+export interface FormProps{
+    name: string,
+    sendData: () => void
 }
