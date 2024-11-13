@@ -32,6 +32,7 @@
 }
 
 .form__button{
+    cursor: grab;
     width: 418px;
     height: 42px;
     flex-shrink: 0;

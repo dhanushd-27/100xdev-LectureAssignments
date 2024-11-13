@@ -8,8 +8,12 @@ const signIn = async ( email: string, password: string ) => {
     return await axios.post('/api/v1/user/signin', { email, password });
 }
 
-const createBlog = async ( title: string, content: string ) => {
-    return await axios.post('/api/v1/blog/create', { title, content });
+const createBlog = async ( title: string, content: string, token: string ) => {
+    return await axios.post('/api/v1/blog/create', { title, content }, {
+        headers: {
+            'token': token
+        }
+    });
 }
 
 export { signUp, signIn, createBlog };
