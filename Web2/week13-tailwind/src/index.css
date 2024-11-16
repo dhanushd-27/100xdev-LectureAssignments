@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@apply o-hover{
+    hover:bg-leetcode-darkgrey p-1 rounded-md
+} */
