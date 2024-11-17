@@ -30,6 +30,8 @@ const LoginCard = () => {
         } catch (error) {
             toast.error("Login Failed");
 
+            console.log(error);
+            
             navigate("/");
         }
     }

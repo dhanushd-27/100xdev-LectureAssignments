@@ -1,7 +1,7 @@
 export interface BlogType{
-    title: string,
-    content: string,
-    createdBy: string
+    title?: string,
+    content?: string,
+    createdBy?: string
 }
 
 export interface LoginPageProps {

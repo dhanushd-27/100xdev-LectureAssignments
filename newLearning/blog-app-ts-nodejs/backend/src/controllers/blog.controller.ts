@@ -8,7 +8,7 @@ const create_blog = async (req: Request, res: Response) => {
     const { title, content}: blog = req.body;
 
     // People can go through your cookies and get your data change it
-    const { id }: JwtPayload = req.cookies;
+    const { id } = req.cookies;
 
     try {
         await BlogModel.create({

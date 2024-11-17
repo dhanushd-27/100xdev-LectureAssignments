@@ -1,9 +1,13 @@
 import axios from "axios";
+import { BlogType } from "../../@types/types";
 
 export const fetchBlogs = async (token: string) => {
-    return await axios.get("/api/v1/blog/all", {
+    const response = await axios.get("/api/v1/blog/all", {
         headers: {
             'token': token
         }
     });
+
+    const data: { Message: string, Blogs: [BlogType]}  = response.data as { Message: string, Blogs: [BlogType]};
+    return data.Blogs;
 }

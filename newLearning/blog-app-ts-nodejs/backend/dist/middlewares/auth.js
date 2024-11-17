@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.userAuth = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const userAuth = (req, res, next) => {
-    const token = req.headers.authorization;
+    const token = req.headers.token;
     if (!token) {
         res.status(400).json({
             "Message": "Given token is undefined"

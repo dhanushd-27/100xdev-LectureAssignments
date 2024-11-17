@@ -15,20 +15,23 @@ const SignupCard = () => {
     const setEmail = useSetRecoilState(emailAtom);
     const setPassword = useSetRecoilState(passwordAtom);
 
+    const navigate = useNavigate();
+
     async function logData(){
-
-        const navigate = useNavigate();
-
         try {
             const response = await signUp( username, email, password );
 
             if(response.status == 200){
                 toast.success("Account created Succesfully");
 
-                navigate("/blogs");
+                navigate("/");
             }
             } catch (error) {
                 toast.error("Sign up failed");
+
+                console.log(error);
+                
+                navigate('/')
             }
     }
 

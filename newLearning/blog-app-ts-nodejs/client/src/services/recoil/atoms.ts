@@ -27,7 +27,7 @@ const contentAtom = atom({
 
 const blogAtom = atom({
     key: "blog",
-    default: []
+    default: [],
 })
 
 export { usernameAtom, emailAtom, passwordAtom, titleAtom, contentAtom, blogAtom };

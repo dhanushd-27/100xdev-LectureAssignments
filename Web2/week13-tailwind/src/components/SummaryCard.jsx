@@ -2,11 +2,17 @@ import menu from "../assets/menu.svg";
 import { PublicPrivate } from "./PublicPrivate";
 import play from "../assets/play.svg";
 import fork from "../assets/fork.svg"
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isOpenAtom } from "../recoil/atom";
 
 const SummaryCard = () => {
+    const setIsOpen = useSetRecoilState(isOpenAtom);
+    const isOpen = useRecoilValue(isOpenAtom);
+
     return (
-        <div className='relative bg-leetcode-grey w-80 h-[278px] rounded-lg'>
-            <img src={ menu } className='relative top-3 left-3 invert w-4 '/>
+        <div className={ `relative bg-leetcode-grey w-80 h-[278px] rounded-lg `}>
+            <button className='absolute top-3 left-3 invert w-4' onClick={ () => { setIsOpen(!isOpen) } } ><img src={ menu } /></button>
+
             <div className="flex flex-col items-center relative top-7">
                 <img src="https://assets.leetcode.com/favorite/default_favorite_cover.png" alt="" className="w-16"/>
                 <h1 className="text-white text-2xl">Favorite</h1>

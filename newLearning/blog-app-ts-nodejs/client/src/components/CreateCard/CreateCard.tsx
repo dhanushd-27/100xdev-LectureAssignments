@@ -5,6 +5,7 @@ import "./CreateCard.css"
 import { contentAtom, titleAtom } from "../../services/recoil/atoms"
 import { createBlog } from "../../services/fetch/PostRequest"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const CreateCard = () => {
     const navigate = useNavigate();
@@ -15,16 +16,25 @@ const CreateCard = () => {
     const setContent = useSetRecoilState(contentAtom);
 
     async function logData(){
-        
+
         try {
-            const response = await createBlog( title, content );
+            const token: string = localStorage.getItem("token") as string;
+
+            console.log(token);
+            
+
+            const response = await createBlog( title, content, token );
 
             if(response.status == 200){
-                
+                toast.success("Blog Created Successfully");
+
                 navigate('/blogs');
             }
         } catch (error) {
-            alert("Something went wrong!");
+            toast.error("Something went wrong");
+
+            console.log(error);
+            
         }
     }
 
