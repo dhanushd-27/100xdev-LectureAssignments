@@ -7,7 +7,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
 const ObjectId = Schema.ObjectId;
 const BlogSchema = new Schema({
-    createdBy: ObjectId,
+    createdBy: { type: ObjectId, ref: 'users' },
     title: String,
     content: String,
 });

@@ -40,11 +40,11 @@ const Blogs = () => {
             async () => {
                 try {
                     console.log(blogs.length);
-    
+
                     const response =  await fetchBlogs(token) as [BlogType];
 
-                    setBlogs(response)
-                    
+                    setBlogs(response);
+
                 } catch (error) {
                     console.log(error);
         
@@ -64,7 +64,7 @@ const Blogs = () => {
                     <BlogCard 
                         title={ blog.title } 
                         content={ blog.content } 
-                        createdBy={ blog.createdBy }
+                        createdBy={ blog.createdBy?.username }
                     />
                 ))}
             </div> : <h1 >No Blogs exists</h1>

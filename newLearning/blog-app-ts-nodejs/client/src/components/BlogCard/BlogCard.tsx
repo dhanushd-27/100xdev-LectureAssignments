@@ -1,7 +1,7 @@
 import './BlogCard.css'
-import { BlogType } from '../../@types/types'
+import { cardProps } from '../../@types/types'
 
-const BlogCard = ({title, content, createdBy}: BlogType) => {
+const BlogCard = ({title, content, createdBy}: cardProps) => {
     return (
         <div className='blog__card'>
             <div className='blog__head'>

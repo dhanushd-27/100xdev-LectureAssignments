@@ -1,7 +1,11 @@
 export interface BlogType{
     title?: string,
     content?: string,
-    createdBy?: string
+    createdBy?: {
+        username: string,
+        email: string,
+        password: string
+    }
 }
 
 export interface LoginPageProps {
@@ -36,4 +40,10 @@ export interface SignupData{
 export interface FormProps{
     name: string,
     sendData: () => void
+}
+
+export interface cardProps{
+    title?: string,
+    content?: string,
+    createdBy?: string
 }

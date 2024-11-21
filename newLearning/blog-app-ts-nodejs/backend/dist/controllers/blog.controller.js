@@ -37,11 +37,16 @@ const create_blog = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.create_blog = create_blog;
 const list_blogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const allBlogs = yield Blog_1.default.find();
-    res.send({
-        "Message": "All Blogs fetched successfully",
-        "Blogs": allBlogs
-    });
+    try {
+        const allBlogs = yield Blog_1.default.find().populate('createdBy');
+        res.send({
+            "Message": "All Blogs fetched successfully",
+            "Blogs": allBlogs
+        });
+    }
+    catch (error) {
+        res.status(500).json({ error: 'Failed to fetch posts' });
+    }
 });
 exports.list_blogs = list_blogs;
 const find_blogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

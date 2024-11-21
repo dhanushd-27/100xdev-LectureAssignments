@@ -1,6 +1,5 @@
-import { blog } from "../types/types";
+import { blog, returnType } from "../types/types";
 import { Response, Request } from 'express';
-import { JwtPayload } from "jsonwebtoken";
 import BlogModel from "../models/Blog";
 import UserModel from "../models/User";
 
@@ -28,12 +27,18 @@ const create_blog = async (req: Request, res: Response) => {
 }
 
 const list_blogs = async(req: Request, res: Response) => {
-    const allBlogs = await BlogModel.find();
+    
+    try {
+        const allBlogs = await BlogModel.find().populate('createdBy');
 
     res.send({
         "Message": "All Blogs fetched successfully",
         "Blogs": allBlogs
     })
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch posts' });
+    }
+
 }
 
 const find_blogs = async (req: Request, res: Response) => {
@@ -50,8 +55,8 @@ const find_blogs = async (req: Request, res: Response) => {
     console.log(blogs);
     
     res.status(200).json({
-        "Blogs created by ": user?.username,
-        "Blogs": blogs
+        createdBy: user?.username,
+        blog: blogs
     })
 }
 

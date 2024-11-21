@@ -16,4 +16,23 @@ const createBlog = async ( title: string, content: string, token: string ) => {
     });
 }
 
-export { signUp, signIn, createBlog };
+const updateBlog = async (token: string, id: string, title: string, content: string ) => {
+    return await axios.put('/api/v1/user/update/blog', { _id: id, title, content }, {
+        headers: {
+            token
+        }
+    })
+}
+
+// const deleteBlog = async ( token: string, id: string ) => {
+//     return await axios.delete('/api/v1/user/delete/blog', { 
+//         headers: {
+//             token: token
+//         },
+//         body: {
+//             _id: id
+//         }
+//     })
+// }
+
+export { signUp, signIn, createBlog, updateBlog }; // , deleteBlog

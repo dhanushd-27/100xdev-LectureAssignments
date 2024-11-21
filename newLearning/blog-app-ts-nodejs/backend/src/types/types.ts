@@ -24,4 +24,11 @@ interface blog{
     content : string
 }
 
-export { signInbody, signUpbody, user, blog }
+interface returnType{
+    _id: ObjectId,
+    title: string,
+    content: string,
+    createdBy: signUpbody
+}
+
+export { signInbody, signUpbody, user, blog, returnType }
