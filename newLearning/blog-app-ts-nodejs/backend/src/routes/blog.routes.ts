@@ -8,5 +8,4 @@ blogRoutes.post('/create', userAuth, create_blog);
 blogRoutes.get('/all', userAuth, list_blogs);
 blogRoutes.get('/:id', userAuth, find_blogs);
 
-
 export default blogRoutes

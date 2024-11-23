@@ -150,10 +150,10 @@ const update_blog = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.update_blog = update_blog;
 const delete_blog = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { _id } = req.body;
+    const id = req.query.id;
     const createdBy = req.cookies.id;
     const isSuccess = yield Blog_1.default.deleteOne({
-        _id: _id,
+        _id: id,
         createdBy
     });
     if (isSuccess.deletedCount) {

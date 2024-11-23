@@ -1,5 +1,6 @@
 import './BlogCard.css'
 import { cardProps } from '../../@types/types'
+import cross from '../../assets/cross.svg'
 
 const BlogCard = ({title, content, createdBy}: cardProps) => {
     return (
@@ -15,6 +16,8 @@ const BlogCard = ({title, content, createdBy}: cardProps) => {
             <div className='blog__footer'>
                 <p className='blog__footer-content'>{ createdBy }</p>
             </div>
+
+            <button className='button__comp'><img src={ cross } alt="" className='cross' /></button>
         </div>
     )
 }

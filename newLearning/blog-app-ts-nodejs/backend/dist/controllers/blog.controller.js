@@ -59,8 +59,8 @@ const find_blogs = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     });
     console.log(blogs);
     res.status(200).json({
-        "Blogs created by ": user === null || user === void 0 ? void 0 : user.username,
-        "Blogs": blogs
+        createdBy: user === null || user === void 0 ? void 0 : user.username,
+        blog: blogs
     });
 });
 exports.find_blogs = find_blogs;

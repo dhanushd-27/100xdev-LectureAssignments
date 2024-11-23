@@ -140,11 +140,11 @@ const update_blog = async (req: Request, res: Response) => {
 }
 
 const delete_blog = async (req: Request, res: Response) => {
-    const { _id } = req.body;
+    const id  = req.query.id;
     const createdBy = req.cookies.id;
 
     const isSuccess = await BlogModel.deleteOne({
-        _id: _id,
+        _id: id,
         createdBy
     })
 

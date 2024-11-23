@@ -24,15 +24,12 @@ const updateBlog = async (token: string, id: string, title: string, content: str
     })
 }
 
-// const deleteBlog = async ( token: string, id: string ) => {
-//     return await axios.delete('/api/v1/user/delete/blog', { 
-//         headers: {
-//             token: token
-//         },
-//         body: {
-//             _id: id
-//         }
-//     })
-// }
+export const deleteBlog = async ( token: string, id: string ) => {
+    return await axios.delete(`/api/v1/user/delete/blog?id=${id}` ,{ 
+        headers: {
+            token: token,
+        }
+    })
+}
 
 export { signUp, signIn, createBlog, updateBlog }; // , deleteBlog
