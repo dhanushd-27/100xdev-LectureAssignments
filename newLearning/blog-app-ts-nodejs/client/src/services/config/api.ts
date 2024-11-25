@@ -1,0 +1,1 @@
+export const API_URL = "https://secound-brain-clone.vercel.app/api/v1";
