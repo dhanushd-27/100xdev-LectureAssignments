@@ -30,4 +30,9 @@ const blogAtom = atom({
     default: [],
 })
 
-export { usernameAtom, emailAtom, passwordAtom, titleAtom, contentAtom, blogAtom };
+const idAtom = atom({
+    key: "id",
+    default: ""
+})
+
+export { usernameAtom, emailAtom, passwordAtom, titleAtom, contentAtom, blogAtom, idAtom };

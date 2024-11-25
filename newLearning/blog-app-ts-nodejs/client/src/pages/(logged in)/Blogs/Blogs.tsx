@@ -5,66 +5,76 @@ import { fetchBlogs } from "../../../services/fetch/GetRequest";
 import toast from "react-hot-toast";
 import { BlogType } from "../../../@types/types";
 import { useEffect, useState } from "react";
-
+import { deleteBlog } from '../../../services/fetch/PostRequest';
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { idAtom } from "../../../services/recoil/atoms";
+import { AxiosError } from "axios";
 
 const Blogs = () => {
-    
+    const setId = useSetRecoilState(idAtom);
+    const idVal = useRecoilValue(idAtom);
     const isLoginPage: boolean = false;
+    const navigate = useNavigate()
 
     const token: string = localStorage.getItem("token") as string;
 
     const [blogs, setBlogs] = useState<[BlogType]>([{}]);
 
-    // let blogs: [BlogType] | [] = [];
+    const fetchData = async () => {
+        try {
+            const response =  await fetchBlogs(token) as [BlogType];
 
-    // (
-    //     async () => {
-    //         try {
-    //             console.log(blogs.length);
+            setBlogs(response);
+        } catch (error) {
+            console.log(error);
 
-    //             blogs =  await fetchBlogs(token) as [BlogType];
-                
-    //             console.log(blogs);
-    //             console.log(blogs.length);
-                
-    //         } catch (error) {
-    //             console.log(error);
-    
-    //             toast.error("Couldn't fetch data");
-    //         }
-    //     }
-    // )();
+            toast.error("Couldn't fetch data");
+        }
+    }
 
     useEffect(() => {
-        const fetchData =
-            async () => {
-                try {
-                    console.log(blogs.length);
+        fetchData();
+    }, [])
 
-                    const response =  await fetchBlogs(token) as [BlogType];
-
-                    setBlogs(response);
-
-                } catch (error) {
-                    console.log(error);
+    const editData = (id: string) => {
+        setId(id as string);
         
-                    toast.error("Couldn't fetch data");
-                }
+        navigate('/blog/update')
+    }
+
+    const deleteB = async (token: string, id: string) => {
+        try {
+            const response = await deleteBlog(token, id as string);
+
+            if(response.status == 200){
+                toast.success("Blog Deleted Successfully");
             }
 
-        fetchData();
-    })
+            const newBlogs = blogs.filter((blog) => blog._id != id) as [BlogType];
+            setBlogs(newBlogs);
+        } catch (error: AxiosError) {
+            if(error.status == 403){
+                toast.error("Unauthorized User");
+                return;
+            }
+
+            toast.error("Something went wrong")
+        }
+    }
 
     return (
         <>
-
             <HeaderPage isLoginPage={isLoginPage}/>
             { blogs.length > 0 ? <div className="blogs__container">
                 { blogs.map((blog: BlogType) => (
                     <BlogCard 
-                        title={ blog.title } 
+                        key={ blog._id }
+                        title={ blog.title }
                         content={ blog.content } 
                         createdBy={ blog.createdBy?.username }
+                        deleteBlog= { () => { deleteB(token, blog._id as string); }}
+                        updateBlog= { () => { editData(blog._id as string) } }
                     />
                 ))}
             </div> : <h1 >No Blogs exists</h1>

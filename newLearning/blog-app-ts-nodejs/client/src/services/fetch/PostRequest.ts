@@ -16,7 +16,7 @@ const createBlog = async ( title: string, content: string, token: string ) => {
     });
 }
 
-const updateBlog = async (token: string, id: string, title: string, content: string ) => {
+const updateBlog = async (token: string, id: string, title: string , content: string ) => {
     return await axios.put('/api/v1/user/update/blog', { _id: id, title, content }, {
         headers: {
             token

@@ -1,4 +1,5 @@
 export interface BlogType{
+    _id?: string,
     title?: string,
     content?: string,
     createdBy?: {
@@ -45,5 +46,7 @@ export interface FormProps{
 export interface cardProps{
     title?: string,
     content?: string,
-    createdBy?: string
+    createdBy?: string,
+    deleteBlog?: () => void
+    updateBlog?: () => void
 }

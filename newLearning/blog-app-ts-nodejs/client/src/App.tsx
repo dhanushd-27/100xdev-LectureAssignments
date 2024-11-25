@@ -7,6 +7,7 @@ import Blogs from './pages/(logged in)/Blogs/Blogs';
 import CreatePage from './pages/(logged in)/CreateBlogs/CreatePage';
 import { RecoilRoot } from 'recoil';
 import { Toaster } from 'react-hot-toast';
+import UpdatePage from './pages/(logged in)/UpdateBlogs/UpdatePage';
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
             <Route path='/signup' element={<Signup />}/>
             <Route path='/blogs' element={<Blogs />}/>
             <Route path='/blog/create' element={<CreatePage />}/>
+            <Route path='/blog/update' element={<UpdatePage />}/>
           </Routes>
 
           < Toaster position='bottom-right' toastOptions={{
