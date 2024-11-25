@@ -7,13 +7,12 @@ import { BlogType } from "../../../@types/types";
 import { useEffect, useState } from "react";
 import { deleteBlog } from '../../../services/fetch/PostRequest';
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { idAtom } from "../../../services/recoil/atoms";
 import { AxiosError } from "axios";
 
 const Blogs = () => {
     const setId = useSetRecoilState(idAtom);
-    const idVal = useRecoilValue(idAtom);
     const isLoginPage: boolean = false;
     const navigate = useNavigate()
 
