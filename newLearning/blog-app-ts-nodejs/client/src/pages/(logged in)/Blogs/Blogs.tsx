@@ -9,7 +9,7 @@ import { deleteBlog } from '../../../services/fetch/PostRequest';
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { idAtom } from "../../../services/recoil/atoms";
-import { AxiosError } from "axios";
+import  axios, { isAxiosError } from "axios";
 
 const Blogs = () => {
     const setId = useSetRecoilState(idAtom);
@@ -52,10 +52,12 @@ const Blogs = () => {
 
             const newBlogs = blogs.filter((blog) => blog._id != id) as [BlogType];
             setBlogs(newBlogs);
-        } catch (error: AxiosError) {
-            if(error.status == 403){
-                toast.error("Unauthorized User");
-                return;
+        } catch (error) {
+            if(axios.isAxiosError(error)){
+                if(error.status == 403){
+                    toast.error("Unauthorized User");
+                    return;
+                }
             }
 
             toast.error("Something went wrong")

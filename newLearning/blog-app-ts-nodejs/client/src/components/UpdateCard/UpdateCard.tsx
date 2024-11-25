@@ -5,7 +5,7 @@ import { contentAtom, idAtom, titleAtom } from "../../services/recoil/atoms"
 import { updateBlog } from "../../services/fetch/PostRequest"
 import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
-import { AxiosError } from "axios";
+import axios, { isAxiosError } from "axios"
 
 const UpdateCard = () => {
     const navigate = useNavigate();
@@ -35,10 +35,12 @@ const UpdateCard = () => {
 
             navigate('/blogs');
             
-        } catch (error: AxiosError) {
-            if(error.status == 403){
-                toast.error("Unauthorized User");
-                return;
+        } catch (error) {
+            if(axios.isAxiosError(error)){
+                if(error.status == 403){
+                    toast.error("Unauthorized User");
+                    return;
+                }
             }
 
             toast.error("Something went wrong");
