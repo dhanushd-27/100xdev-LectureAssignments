@@ -11,10 +11,8 @@ dotenv.config();
 connectDB();
 
 const corsOptions: cors.CorsOptions = {
-    origin: process.env.ORIGIN, // allow requests from any origin
-    methods: ['GET','POST','PUT','DELETE'], // allow specific HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // allow specific headers
-    credentials: true
+    origin: process.env.ORIGIN,
+    credentials: true,
 };
 
 app.use(cors(corsOptions));
