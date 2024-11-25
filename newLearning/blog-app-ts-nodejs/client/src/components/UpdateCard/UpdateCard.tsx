@@ -18,7 +18,7 @@ const UpdateCard = () => {
 
     const token = localStorage.getItem("token") as string;
 
-    const updateB = async(token: string, id: string, title: string, content: string, e: React.FormEvent<HTMLFormElement>) => {
+    const updateB = async(token: string, id: string, title: string, content: string, e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
 
         try {
