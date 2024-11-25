@@ -1,1 +1,1 @@
-export const API_URL = "https://secound-brain-clone.vercel.app/api/v1";
+export const API_URL = "https://100xdev-lecture-assignments.vercel.app";
