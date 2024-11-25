@@ -37,6 +37,7 @@ dotenv.config();
 (0, db_1.connectDB)();
 const corsOptions = {
     origin: process.env.ORIGIN,
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
 };
 app.use((0, cors_1.default)(corsOptions));

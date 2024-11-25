@@ -12,6 +12,7 @@ connectDB();
 
 const corsOptions: cors.CorsOptions = {
     origin: process.env.ORIGIN,
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
 };
 
