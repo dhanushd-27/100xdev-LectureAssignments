@@ -9,7 +9,7 @@ import { deleteBlog } from '../../../services/fetch/PostRequest';
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { idAtom } from "../../../services/recoil/atoms";
-import  axios, { isAxiosError } from "axios";
+import  axios from "axios";
 
 const Blogs = () => {
     const setId = useSetRecoilState(idAtom);
