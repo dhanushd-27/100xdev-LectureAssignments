@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://100xdev-lecture-assignments.vercel.app'
+        target: 'https://100xdev-lecture-assignments.vercel.app/'
       }
     }
   }
