@@ -1,1 +1,1 @@
-export const API_URL = "https://100xdev-lecture-assignments.vercel.app";
+export const API_URL = process.env.BACKEND_URL;
