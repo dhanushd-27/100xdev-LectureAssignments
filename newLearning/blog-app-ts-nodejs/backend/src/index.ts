@@ -11,7 +11,7 @@ dotenv.config();
 connectDB();
 
 const corsOptions: cors.CorsOptions = {
-    origin: process.env.ORIGIN,
+    origin: ['https://blognest-orca.vercel.app/', 'http://localhost:5173/'],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
 };
